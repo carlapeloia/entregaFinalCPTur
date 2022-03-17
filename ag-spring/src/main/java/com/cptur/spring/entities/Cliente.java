@@ -1,0 +1,112 @@
+package com.cptur.spring.entities;
+
+import java.util.Objects;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "ent_clientes")
+public class Cliente {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long IdCliente;
+	private String NomeCliente;
+	private String CpfCliente;
+	private String TelefoneCliente;
+	private String EmailCliente;
+	private String EstadoCivilCliente;
+	
+	public Cliente() {
+		
+	}
+	
+	
+
+	public Cliente(Long idCliente, String nomeCliente, String cpfCliente, String telefoneCliente,
+			String emailCliente, String estadoCivilCliente) {
+		super();
+		this.IdCliente = idCliente;
+		this.NomeCliente = nomeCliente;
+		this.CpfCliente = cpfCliente;
+		this.TelefoneCliente = telefoneCliente;
+		this.EmailCliente = emailCliente;
+		this.EstadoCivilCliente = estadoCivilCliente;
+	}
+
+
+
+	public Long getIdCliente() {
+		return IdCliente;
+	}
+
+	public void setIdCliente(Long idCliente) {
+		IdCliente = idCliente;
+	}
+
+	public String getNomeCliente() {
+		return NomeCliente;
+	}
+
+	public void setNomeCliente(String nomeCliente) {
+		NomeCliente = nomeCliente;
+	}
+
+	public String getCpfCliente() {
+		return CpfCliente;
+	}
+
+	public void setCpfCliente(String cpfCliente) {
+		CpfCliente = cpfCliente;
+	}
+
+	public String getTelefoneCliente() {
+		return TelefoneCliente;
+	}
+
+	public void setTelefoneCliente(String telefoneCliente) {
+		TelefoneCliente = telefoneCliente;
+	}
+
+	public String getEmailCliente() {
+		return EmailCliente;
+	}
+
+	public void setEmailCliente(String emailCliente) {
+		EmailCliente = emailCliente;
+	}
+
+	public String getEstadoCivilCliente() {
+		return EstadoCivilCliente;
+	}
+
+	public void setEstadoCivilCliente(String estadoCivilCliente) {
+		EstadoCivilCliente = estadoCivilCliente;
+	}
+
+
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(IdCliente);
+	}
+
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Cliente other = (Cliente) obj;
+		return Objects.equals(IdCliente, other.IdCliente);
+	}
+	
+	
+}

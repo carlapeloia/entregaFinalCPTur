@@ -1,0 +1,58 @@
+package com.cptur.spring.controllers;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.cptur.spring.dto.DestinoDTO;
+import com.cptur.spring.entities.Destino;
+import com.cptur.spring.servicies.DestinoService;
+
+@RestController
+@RequestMapping (value = "/destinos")
+public class DestinoController {
+	
+	@Autowired
+	private DestinoService service;
+	
+	
+	@GetMapping
+	public List<Destino> findAll() {
+		return service.findAll();
+	}
+	
+	@GetMapping(value = "/{IdDestino}")
+	public Destino findById(@PathVariable Long IdDestino) {
+		return service.findById(IdDestino);
+	}
+
+	@PostMapping(value = "/")
+	public ResponseEntity<Destino> save(@RequestBody Destino destino) {
+		service.save(destino);
+		return ResponseEntity.ok().body(destino);
+	}
+
+	@DeleteMapping(value = "/{IdDestino}")
+	public ResponseEntity<Destino> delete(@PathVariable Long IdDestino) {
+		Destino destino = service.findById(IdDestino);
+		service.delete(IdDestino);
+		return ResponseEntity.ok().body(destino);
+	}
+	
+	@PutMapping(value = "/update")
+	public ResponseEntity<Destino> update(@RequestBody Destino destino) {
+		destino = service.update(destino);
+		return ResponseEntity.ok().body(destino);
+	}
+}

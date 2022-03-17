@@ -1,0 +1,89 @@
+package com.cptur.spring.entities;
+
+public class Contato {
+	private String NomeCliente;
+	private String EmailCliente;
+	private String AssuntoContato;
+	private Integer QtPessoas;
+	private String NomeDestino;
+	private String MensagemContato;
+
+	
+	public Contato() {
+		
+	}
+
+
+	public Contato(String nomeCliente, String emailCliente, String assuntoContato, Integer qtPessoas,
+			String nomeDestino, String mensagemContato) {
+		super();
+		NomeCliente = nomeCliente;
+		EmailCliente = emailCliente;
+		AssuntoContato = assuntoContato;
+		QtPessoas = qtPessoas;
+		NomeDestino = nomeDestino;
+		MensagemContato = mensagemContato;
+	}
+
+
+	public String getNomeCliente() {
+		return NomeCliente;
+	}
+
+
+	public void setNomeCliente(String nomeCliente) {
+		NomeCliente = nomeCliente;
+	}
+
+
+	public String getEmailCliente() {
+		return EmailCliente;
+	}
+
+
+	public void setEmailCliente(String emailCliente) {
+		EmailCliente = emailCliente;
+	}
+
+
+	public String getAssuntoContato() {
+		return AssuntoContato;
+	}
+
+
+	public void setAssuntoContato(String assuntoContato) {
+		AssuntoContato = assuntoContato;
+	}
+
+
+	public Integer getQtPessoas() {
+		return QtPessoas;
+	}
+
+
+	public void setQtPessoas(Integer qtPessoas) {
+		QtPessoas = qtPessoas;
+	}
+
+
+	public String getNomeDestino() {
+		return NomeDestino;
+	}
+
+
+	public void setNomeDestino(String nomeDestino) {
+		NomeDestino = nomeDestino;
+	}
+
+
+	public String getMensagemContato() {
+		return MensagemContato;
+	}
+
+
+	public void setMensagemContato(String mensagemContato) {
+		MensagemContato = mensagemContato;
+	}
+	
+	
+}

@@ -1,0 +1,46 @@
+package com.cptur.spring.entities;
+
+import java.io.Serializable;
+
+import javax.persistence.Embeddable;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+@Embeddable
+public class ContatoPK implements Serializable{
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	@ManyToOne
+	@JoinColumn(name="cliente_IdCliente")
+	private Cliente cliente;
+	
+	@ManyToOne
+	@JoinColumn(name="cliente_IdDestino")
+	private Destino destino;
+	
+	public ContatoPK() {
+		
+	}
+
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
+
+	public Destino getDestino() {
+		return destino;
+	}
+
+	public void setDestino(Destino destino) {
+		this.destino = destino;
+	}
+	
+	
+}

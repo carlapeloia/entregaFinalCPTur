@@ -1,0 +1,48 @@
+package com.cptur.spring.servicies;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.cptur.spring.entities.Contato;
+import com.cptur.spring.entities.Destino;
+import com.cptur.spring.repositories.ContatoRepository;
+import com.cptur.spring.servicies.exceptions.ObjectNotFoundException;
+
+@Service
+public class ContatoService {
+
+	@Autowired
+	private ContatoRepository repository;
+	
+	@Transactional(readOnly = true)
+	public List<Contato> findAll() {
+		List<Contato> resultado = repository.findAll();
+		return resultado;
+	}
+	
+	@Transactional(readOnly = true)
+	public Contato findById(Long IdContato) {
+		Optional<Contato> contato = repository.findById(IdContato);
+		return contato.orElseThrow(() -> new ObjectNotFoundException("Contato não encontrado! Id: " + IdContato + ", Tipo " + Contato.class.getName()));
+	}
+
+	@Transactional(readOnly = true)
+	public void save(Contato contato) {
+		repository.save(contato);
+	}
+
+	public void delete(Long IdContato) {
+		Optional<Contato> contato = repository.findById(IdContato);
+		if (contato.isPresent()) {
+			repository.delete(contato.get());
+		} else {
+			System.out.println("Contato não localizado");
+		}
+}
+	
+	
+}

@@ -1,0 +1,52 @@
+package com.cptur.spring.servicies;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.cptur.spring.dto.DestinoDTO;
+import com.cptur.spring.entities.Destino;
+import com.cptur.spring.repositories.DestinoRepository;
+import com.cptur.spring.servicies.exceptions.ObjectNotFoundException;
+
+@Service
+public class DestinoService {
+
+	@Autowired
+	private DestinoRepository repository;
+	
+	@Transactional(readOnly = true)
+	public List<Destino> findAll() {
+		List<Destino> resultado = repository.findAll();
+		return resultado;
+	}
+
+	@Transactional(readOnly = true)
+	public Destino findById(Long IdDestino) {
+		Optional<Destino> destino = repository.findById(IdDestino);
+		return destino.orElseThrow(() -> new ObjectNotFoundException("Destino não encontrado! Id: " + IdDestino + ", Tipo " + Destino.class.getNameDestino()));
+	}
+
+	@Transactional(readOnly = true)
+	public void save(Destino destino) {
+		repository.save(destino);
+	}
+
+	public void delete(Long IdDestino) {
+		Optional<Destino> destino = repository.findById(IdDestino);
+		if (destino.isPresent()) {
+			repository.delete(destino.get());
+		} else {
+			System.out.println("Destino não localizado");
+		}
+	}
+	
+	public Destino update(Destino destino) {
+		return repository.save(destino);
+	}
+}

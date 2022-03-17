@@ -1,0 +1,22 @@
+package com.cptur.spring.controllers;
+
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.cptur.spring.dto.ContatoDTO;
+import com.cptur.spring.servicies.ContatoService;
+
+@RestController
+@RequestMapping (value = "/contatos")
+public class ContatoController {
+
+	
+	@PutMapping
+	public ContatoDTO saveContato(@RequestBody ContatoDTO dto) {
+		ContatoDTO contatoDTO = saveContato(dto);
+		return contatoDTO;
+		
+	}
+}

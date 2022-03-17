@@ -1,0 +1,28 @@
+package com.cptur.spring.entities;
+
+public class ContatoPK {
+	private Cliente cliente;
+	private Destino destino;
+	
+	public ContatoPK() {
+		
+	}
+
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
+
+	public Destino getDestino() {
+		return destino;
+	}
+
+	public void setDestino(Destino destino) {
+		this.destino = destino;
+	}
+	
+	
+}

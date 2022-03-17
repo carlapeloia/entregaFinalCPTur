@@ -1,0 +1,5 @@
+package com.cptur.springresources.exception;
+
+public class StandardError {
+
+}

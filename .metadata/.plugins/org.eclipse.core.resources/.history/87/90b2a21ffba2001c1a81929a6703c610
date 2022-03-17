@@ -1,0 +1,10 @@
+package com.cptur.spring.repositories;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.cptur.spring.entities.Contato;
+import com.cptur.spring.entities.ContatoPK;
+
+public interface ContatoRepository extends JpaRepository<Contato, Long>{
+
+}

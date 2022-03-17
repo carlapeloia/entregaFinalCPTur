@@ -1,0 +1,5 @@
+package com.cptur.spring.config;
+
+public class SecurityConfig {
+
+}

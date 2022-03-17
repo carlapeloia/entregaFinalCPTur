@@ -1,0 +1,56 @@
+package com.cptur.spring.controllers;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.cptur.spring.entities.Contato;
+import com.cptur.spring.services.ContatoService;
+
+
+@RestController
+@RequestMapping ("/contatos")
+public class ContatoController {
+
+	@Autowired
+	private ContatoService service;
+	
+	
+	@GetMapping
+	public List<Contato> findAll() {
+		return service.findAll();
+	}
+	
+	@GetMapping("/{IdContato}")
+	public Contato findById(@PathVariable Long IdContato) {
+		return service.findById(IdContato);
+	}
+
+	@PostMapping("/")
+	public ResponseEntity<Contato> save(@RequestBody Contato contato) {
+		service.save(contato);
+		return ResponseEntity.ok().body(contato);
+	}
+
+	@DeleteMapping("/{IdContato}")
+	public ResponseEntity<Contato> delete(@PathVariable Long IdContato) {
+		Contato contato = service.findById(IdContato);
+		service.delete(IdContato);
+		return ResponseEntity.ok().body(contato);
+	}
+	
+
+
+}
+	
+
+
+

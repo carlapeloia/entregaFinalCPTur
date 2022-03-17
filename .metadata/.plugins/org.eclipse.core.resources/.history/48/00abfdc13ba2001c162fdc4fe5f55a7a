@@ -1,0 +1,64 @@
+package com.cptur.spring.entities;
+
+public class Destino {
+	private Long IdDestino;
+	private String NomeDestino; 
+	private String TipoDestino; 
+	private String ClimaDestino; 
+	private String DescricaoDestino;
+	private String FotoDestino;
+	
+	public Destino() {
+		
+	}
+
+	public Long getIdDestino() {
+		return IdDestino;
+	}
+
+	public void setIdDestino(Long idDestino) {
+		IdDestino = idDestino;
+	}
+
+	public String getNomeDestino() {
+		return NomeDestino;
+	}
+
+	public void setNomeDestino(String nomeDestino) {
+		NomeDestino = nomeDestino;
+	}
+
+	public String getTipoDestino() {
+		return TipoDestino;
+	}
+
+	public void setTipoDestino(String tipoDestino) {
+		TipoDestino = tipoDestino;
+	}
+
+	public String getClimaDestino() {
+		return ClimaDestino;
+	}
+
+	public void setClimaDestino(String climaDestino) {
+		ClimaDestino = climaDestino;
+	}
+
+	public String getDescricaoDestino() {
+		return DescricaoDestino;
+	}
+
+	public void setDescricaoDestino(String descricaoDestino) {
+		DescricaoDestino = descricaoDestino;
+	}
+
+	public String getFotoDestino() {
+		return FotoDestino;
+	}
+
+	public void setFotoDestino(String fotoDestino) {
+		FotoDestino = fotoDestino;
+	}
+	
+	
+}

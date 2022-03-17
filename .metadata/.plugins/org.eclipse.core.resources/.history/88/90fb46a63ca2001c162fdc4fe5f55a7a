@@ -1,0 +1,79 @@
+package com.cptur.spring.entities;
+
+public class Cliente {
+	private Integer IdCliente;
+	private String NomeCliente;
+	private String CpfCliente;
+	private String TelefoneCliente;
+	private String EmailCliente;
+	private String EstadoCivilCliente;
+	
+	public Cliente() {
+		
+	}
+	
+	
+
+	public Cliente(Integer idCliente, String nomeCliente, String cpfCliente, String telefoneCliente,
+			String emailCliente, String estadoCivilCliente) {
+		super();
+		IdCliente = idCliente;
+		NomeCliente = nomeCliente;
+		CpfCliente = cpfCliente;
+		TelefoneCliente = telefoneCliente;
+		EmailCliente = emailCliente;
+		EstadoCivilCliente = estadoCivilCliente;
+	}
+
+
+
+	public Integer getIdCliente() {
+		return IdCliente;
+	}
+
+	public void setIdCliente(Integer idCliente) {
+		IdCliente = idCliente;
+	}
+
+	public String getNomeCliente() {
+		return NomeCliente;
+	}
+
+	public void setNomeCliente(String nomeCliente) {
+		NomeCliente = nomeCliente;
+	}
+
+	public String getCpfCliente() {
+		return CpfCliente;
+	}
+
+	public void setCpfCliente(String cpfCliente) {
+		CpfCliente = cpfCliente;
+	}
+
+	public String getTelefoneCliente() {
+		return TelefoneCliente;
+	}
+
+	public void setTelefoneCliente(String telefoneCliente) {
+		TelefoneCliente = telefoneCliente;
+	}
+
+	public String getEmailCliente() {
+		return EmailCliente;
+	}
+
+	public void setEmailCliente(String emailCliente) {
+		EmailCliente = emailCliente;
+	}
+
+	public String getEstadoCivilCliente() {
+		return EstadoCivilCliente;
+	}
+
+	public void setEstadoCivilCliente(String estadoCivilCliente) {
+		EstadoCivilCliente = estadoCivilCliente;
+	}
+	
+	
+}

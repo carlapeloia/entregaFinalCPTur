@@ -1,0 +1,38 @@
+package com.cptur.spring.entities;
+
+public class ContatoPK {
+	private String NomeCliente;
+	private String EmailCliente;
+	private String NomeDestino;
+	
+	public ContatoPK() {
+		
+	}
+	
+	public String getNomeCliente() {
+		return NomeCliente;
+	}
+
+	public void setNomeCliente(String nomeCliente) {
+		NomeCliente = nomeCliente;
+	}
+
+	public String getEmailCliente() {
+		return EmailCliente;
+	}
+
+	public void setEmailCliente(String emailCliente) {
+		EmailCliente = emailCliente;
+	}
+
+	public String getNomeDestino() {
+		return NomeDestino;
+	}
+
+	public void setNomeDestino(String nomeDestino) {
+		NomeDestino = nomeDestino;
+	}
+	
+	
+	
+}

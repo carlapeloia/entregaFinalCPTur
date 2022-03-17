@@ -1,0 +1,31 @@
+package com.cptur.spring.servicies;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.cptur.spring.dto.ContatoDTO;
+import com.cptur.spring.dto.DestinoDTO;
+import com.cptur.spring.entities.Cliente;
+import com.cptur.spring.entities.Destino;
+import com.cptur.spring.repositories.ClienteRepository;
+import com.cptur.spring.repositories.DestinoRepository;
+
+@Service
+public class ContatoService {
+
+	@Autowired
+	private DestinoRepository destinoRepository;
+	
+	@Autowired
+	private ClienteRepository clientRepository;
+	
+	@Transactional
+	public void saveContato(ContatoDTO dto) {
+		
+		Cliente cliente = clienteRepository.findByEmail(dto.getEmailCliente());
+		
+	}
+}

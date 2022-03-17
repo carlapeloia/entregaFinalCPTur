@@ -1,0 +1,5 @@
+package com.cptur.spring.dto;
+
+public class ContatoDTO {
+
+}

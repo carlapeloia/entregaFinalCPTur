@@ -1,0 +1,5 @@
+package com.cptur.spring.controllers;
+
+public class ClienteController {
+
+}

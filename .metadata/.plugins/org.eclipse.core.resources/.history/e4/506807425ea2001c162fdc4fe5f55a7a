@@ -1,0 +1,25 @@
+package com.cptur.spring.servicies;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.cptur.spring.dto.DestinoDTO;
+import com.cptur.spring.entities.Destino;
+import com.cptur.spring.repositories.DestinoRepository;
+
+@Service
+public class DestinoService {
+
+	@Autowired
+	private DestinoRepository repository;
+	
+	@Transactional(readOnly = true)
+	public Page<DestinoDTO> findAll(Pageable pegeable){
+		Page<Destino> result = repository.findAll(pegeable);
+		Page<DestinoDTO> page = result.map(d -> new DestinoDTO(d));
+		return page;
+	}
+}

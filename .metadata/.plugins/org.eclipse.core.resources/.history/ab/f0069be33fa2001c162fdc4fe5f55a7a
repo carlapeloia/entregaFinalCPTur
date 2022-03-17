@@ -1,0 +1,66 @@
+package com.cptur.spring.entities;
+
+public class Contato {
+	private ContatoPK IdContato;
+	private String AssuntoContato;
+	private Integer QtPessoas;
+	private String MensagemContato;
+
+	
+	public Contato() {
+		
+	}
+	
+	public void setCliente(Cliente cliente) {
+		IdContato.setCliente(cliente);
+	}
+	
+	public void setDestino(Destino destino) {
+		IdContato.setDestino(destino);
+	}
+
+
+	public ContatoPK getIdContato() {
+		return IdContato;
+	}
+
+
+	public void setIdContato(ContatoPK idContato) {
+		IdContato = idContato;
+	}
+
+
+	public String getAssuntoContato() {
+		return AssuntoContato;
+	}
+
+
+	public void setAssuntoContato(String assuntoContato) {
+		AssuntoContato = assuntoContato;
+	}
+
+
+	public Integer getQtPessoas() {
+		return QtPessoas;
+	}
+
+
+	public void setQtPessoas(Integer qtPessoas) {
+		QtPessoas = qtPessoas;
+	}
+
+
+	public String getMensagemContato() {
+		return MensagemContato;
+	}
+
+
+	public void setMensagemContato(String mensagemContato) {
+		MensagemContato = mensagemContato;
+	}
+
+
+	
+	
+	
+}

@@ -1,0 +1,12 @@
+package com.cptur.spring.entities;
+
+public class Destino {
+	private Long IdDestino;
+	private String NomeDestino; 
+	private String TipoDestino; 
+	private String ClimaDestino; 
+	private String DescricaoDestino;
+	private String FotoDestino;
+	
+	public 
+}
