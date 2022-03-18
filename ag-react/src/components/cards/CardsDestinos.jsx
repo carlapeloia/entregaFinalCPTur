@@ -15,7 +15,7 @@ function CardsDestinos(props) {
         <div>
             {
                 destino.map(destino => (
-                    <div className="card-deck mb-4 m-auto" key={destino.idDestino}>
+                    <div className="card-deck mb-5 m-auto" key={destino.idDestino}>
                         <div className="card mb-5"  >
                             <img className="card-img-top" src={destino.fotoDestino} alt="Imagem de capa do card" />
                             <div className="card-body" >

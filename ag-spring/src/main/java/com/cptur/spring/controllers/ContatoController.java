@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,6 +20,7 @@ import com.cptur.spring.services.ContatoService;
 
 @RestController
 @RequestMapping ("/contatos")
+//@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class ContatoController {
 
 	@Autowired
@@ -25,30 +28,32 @@ public class ContatoController {
 	
 	
 	@GetMapping
+	//@PreAuthorize("hasRole('ADMIN','USER')")
 	public List<Contato> findAll() {
 		return service.findAll();
 	}
 	
 	@GetMapping("/{IdContato}")
+	//@PreAuthorize("hasRole('ADMIN','USER')")
 	public Contato findById(@PathVariable Long IdContato) {
 		return service.findById(IdContato);
 	}
 
 	@PostMapping("/")
+	//@PreAuthorize("hasRole('ADMIN')")
 	public ResponseEntity<Contato> save(@RequestBody Contato contato) {
 		service.save(contato);
 		return ResponseEntity.ok().body(contato);
 	}
 
 	@DeleteMapping("/{IdContato}")
+	//@PreAuthorize("hasRole('ADMIN')")
 	public ResponseEntity<Contato> delete(@PathVariable Long IdContato) {
 		Contato contato = service.findById(IdContato);
 		service.delete(IdContato);
 		return ResponseEntity.ok().body(contato);
 	}
 	
-
-
 }
 	
 

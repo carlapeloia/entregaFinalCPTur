@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,6 +20,7 @@ import com.cptur.spring.services.ClienteService;
 
 @RestController
 @RequestMapping ("/clientes")
+//@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class ClienteController {
 
 	@Autowired
@@ -35,12 +38,14 @@ public class ClienteController {
 	}
 
 	@PostMapping("/")
+	//@PreAuthorize("hasRole('ADMIN')")
 	public ResponseEntity<Cliente> save(@RequestBody Cliente cliente) {
 		service.save(cliente);
 		return ResponseEntity.ok().body(cliente);
 	}
 
 	@DeleteMapping("/{IdCliente}")
+	//@PreAuthorize("hasRole('ADMIN')")
 	public ResponseEntity<Cliente> delete(@PathVariable Long IdCliente) {
 		Cliente cliente = service.findById(IdCliente);
 		service.delete(IdCliente);
@@ -48,6 +53,7 @@ public class ClienteController {
 	}
 	
 	@PutMapping("/update")
+	//@PreAuthorize("hasRole('ADMIN')")
 	public ResponseEntity<Cliente> update(@RequestBody Cliente cliente) {
 		cliente = service.update(cliente);
 		return ResponseEntity.ok().body(cliente);
