@@ -13,7 +13,7 @@ function FormDestino() {
 
   const btnEnviar = (e) => {
     e.preventDefault()
-    api.post("/destinos/", {
+    api.post("/destinos/admin/inserir", {
 
       nomeDestino: nomeDestino.current.value,
       tipoDestino: tipoDestino.current.value,

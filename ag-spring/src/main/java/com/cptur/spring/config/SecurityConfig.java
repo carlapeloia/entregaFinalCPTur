@@ -27,7 +27,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		PasswordEncoder passwordEncoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
-		auth.inMemoryAuthentication().withUser("agente1").password(passwordEncoder.encode("m@resi@"))
+		auth.inMemoryAuthentication()
+		.withUser("agente1").password(passwordEncoder.encode("m@resi@"))
 		.roles("ADMIN", "USER")
 		.and()
 		.withUser("agente2").password(passwordEncoder.encode("f@voHol@ndes"))
@@ -39,8 +40,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.csrf().disable().authorizeRequests()	
-		.anyRequest().authenticated().and().httpBasic();
+		http.csrf().disable().authorizeRequests()
+		.antMatchers("/destinos/admin/**").hasRole("ADMIN")
+		.antMatchers("/destinos/**").hasRole("USER")
+		.anyRequest().authenticated().and()
+		.formLogin().and().httpBasic();
 	}
 
 /*	@Override

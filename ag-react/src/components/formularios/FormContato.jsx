@@ -15,7 +15,7 @@ function FormContato() {
 
   const btnEnviar = (e) => {
     e.preventDefault()
-    api.post("/contatos/", {
+    api.post("/contatos/inserir", {
 
       nomeContato: nomeContato.current.value,
       emailContato: emailContato.current.value,

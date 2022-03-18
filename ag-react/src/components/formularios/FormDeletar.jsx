@@ -13,14 +13,14 @@ function Deletar() {
 
 
   function btnDelDest() {
-    api.delete(`/destinos/${botao1.current.value}`)
+    api.delete(`/destinos/admin/deletar/${botao1.current.value}`)
       .then(() => api.get("/destinos").then((resp) => setContato(resp.data)).catch((erro) => console.log(erro)))
       .catch((erro) => console.log(erro))
    
   }
 
   function btnDelCli() {
-    api.delete(`/clientes/${botao2.current.value}`)
+    api.delete(`/clientes/admin/deletar/${botao2.current.value}`)
       .then(() => api.get("/clientes").then((resp) => setContato(resp.data)).catch((erro) => console.log(erro)))
       .catch((erro) => console.log(erro))
 
@@ -28,7 +28,7 @@ function Deletar() {
 
   function btnDelCont() {
 
-    api.delete(`/contatos/${botao3.current.value}`)
+    api.delete(`/contatos/admin/deletar/${botao3.current.value}`)
       .then(() => api.get("/contatos").then((resp) => setContato(resp.data)).catch((erro) => console.log(erro)))
       .catch((erro) => console.log(erro))
   }

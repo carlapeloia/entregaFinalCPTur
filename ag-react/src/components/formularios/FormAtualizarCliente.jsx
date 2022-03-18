@@ -15,7 +15,7 @@ function FormAtualizarCliente() {
 
     const btnAtualizar = (e) => {
         e.preventDefault()
-        api.put("/clientes/update", {
+        api.put("/clientes/admin/atualizar", {
 
             idCliente: idCliente.current.value,
             nomeCliente: nomeCliente.current.value,

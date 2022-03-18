@@ -26,12 +26,7 @@ function Home() {
                 <p>Se apaixonou pelo turismo? Então divirta-se com informações oficiais, disponibilizadas pelo governo em <a target="_blank" href="http://www.dadosefatos.turismo.gov.br/revista.html">"Revistas e Estatísticas Turísticas"</a>.</p>
             </section>
 
-            <div className="container text-muted text-center mt-5">
-                <p className="">Nossos contatos</p>
-                <hr/>
-                <p className="">WatsApp: (11) 94444-4444</p>
-                <p className="">E-mail: cptur@cptur.com.br</p>
-            </div>
+          
 
         </div>
 

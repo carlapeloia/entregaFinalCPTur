@@ -14,7 +14,7 @@ function FormAtualizarDestino() {
 
     const btnAtualizar = (e) => {
         e.preventDefault()
-        api.put("/destinos/update", {
+        api.put("/destinos/admin/atualizar", {
 
             idDestino: idDestino.current.value,
             nomeDestino: nomeDestino.current.value,

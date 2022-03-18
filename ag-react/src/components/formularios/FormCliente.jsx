@@ -12,7 +12,7 @@ function FormCliente() {
 
     const btnEnviar = (e) => {
         e.preventDefault()
-        api.post("/clientes/", {
+        api.post("/clientes/admin/inserir", {
 
             nomeCliente: nomeCliente.current.value,
             cpfCliente: cpfCliente.current.value,

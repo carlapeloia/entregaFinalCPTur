@@ -34,19 +34,19 @@ public class ContatoController {
 	}
 	
 	@GetMapping("/{IdContato}")
-	//@PreAuthorize("hasRole('ADMIN','USER')")
+	//@PreAuthorize("hasRole('ADMIN')")
 	public Contato findById(@PathVariable Long IdContato) {
 		return service.findById(IdContato);
 	}
 
-	@PostMapping("/")
+	@PostMapping("/inserir")
 	//@PreAuthorize("hasRole('ADMIN')")
 	public ResponseEntity<Contato> save(@RequestBody Contato contato) {
 		service.save(contato);
 		return ResponseEntity.ok().body(contato);
 	}
 
-	@DeleteMapping("/{IdContato}")
+	@DeleteMapping("/admin/deletar/{IdContato}")
 	//@PreAuthorize("hasRole('ADMIN')")
 	public ResponseEntity<Contato> delete(@PathVariable Long IdContato) {
 		Contato contato = service.findById(IdContato);

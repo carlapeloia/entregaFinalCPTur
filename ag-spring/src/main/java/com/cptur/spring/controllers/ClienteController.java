@@ -37,14 +37,14 @@ public class ClienteController {
 		return service.findById(IdCliente);
 	}
 
-	@PostMapping("/")
+	@PostMapping("/admin/inserir")
 	//@PreAuthorize("hasRole('ADMIN')")
 	public ResponseEntity<Cliente> save(@RequestBody Cliente cliente) {
 		service.save(cliente);
 		return ResponseEntity.ok().body(cliente);
 	}
 
-	@DeleteMapping("/{IdCliente}")
+	@DeleteMapping("/admin/deletar/{IdCliente}")
 	//@PreAuthorize("hasRole('ADMIN')")
 	public ResponseEntity<Cliente> delete(@PathVariable Long IdCliente) {
 		Cliente cliente = service.findById(IdCliente);
@@ -52,7 +52,7 @@ public class ClienteController {
 		return ResponseEntity.ok().body(cliente);
 	}
 	
-	@PutMapping("/update")
+	@PutMapping("/admin/atualizar")
 	//@PreAuthorize("hasRole('ADMIN')")
 	public ResponseEntity<Cliente> update(@RequestBody Cliente cliente) {
 		cliente = service.update(cliente);

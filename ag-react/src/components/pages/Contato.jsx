@@ -11,12 +11,6 @@ function Contato() {
                 <FormContato />
             </div>
 
-            <div className="container text-muted text-center mt-2">
-                <p>Demais canais de contato</p>
-                <hr />
-                <p>WatsApp: (11) 94444-4444</p>
-                <p>E-mail: cptur@cptur.com.br</p>
-            </div>
         </div>
 
     )
