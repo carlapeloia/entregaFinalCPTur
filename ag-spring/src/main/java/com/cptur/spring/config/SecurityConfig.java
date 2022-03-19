@@ -1,5 +1,7 @@
 package com.cptur.spring.config;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 //import java.util.Arrays;
 
 //import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +15,8 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 //import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
+
+import com.cptur.spring.services.UserService;
 //import org.springframework.web.cors.CorsConfiguration;
 //import org.springframework.web.cors.CorsConfigurationSource;
 //import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
@@ -23,6 +27,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 /*	@Autowired
 	private Environment env;*/
+	
+	@Autowired
+	private UserService userService;
 	
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
@@ -36,6 +43,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		.and()
 		.withUser("cliente1").password(passwordEncoder.encode("@lfarrob@"))
 		.roles("USER");
+		System.out.println("PASSWORD1" + passwordEncoder.encode("b@silico"));
+		System.out.println("PASSWORD2" + passwordEncoder.encode("b&rry"));
+		System.out.println("PASSWORD3" + passwordEncoder.encode("v@nill@"));
+		
+		auth.userDetailsService(userService).passwordEncoder(passwordEncoder);
 	}
 	
 	@Override
